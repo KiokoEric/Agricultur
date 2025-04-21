@@ -1,10 +1,11 @@
 import './App.css';
+import Weather from './Pages/Weather/Weather';
 
 function App() {
 
   return (
-    <div>
-      
+    <div className='App' >
+      <Weather />
     </div>
   )
 }

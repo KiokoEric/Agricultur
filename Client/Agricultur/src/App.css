@@ -10,7 +10,6 @@ html {
   scroll-behavior: smooth;
 }
 .App {
-  background-color: black;
   display: flex;
   flex-direction: column;
   row-gap: 2.5rem;
@@ -19,4 +18,8 @@ body {
   font-family: 'Instrument Serif', serif;
   font-size: 18px;
   overflow-x: hidden;
+}
+#Input[type = "text"] {
+  font-family: 'Instrument Serif', serif;
+  font-size: 18px;
 }
