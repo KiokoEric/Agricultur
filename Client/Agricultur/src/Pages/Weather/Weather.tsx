@@ -9,6 +9,7 @@ import { FaMapLocationDot } from "react-icons/fa6";
 import { FaTemperatureHigh } from "react-icons/fa";
 import { FaTemperatureHalf } from "react-icons/fa6";
 import { LiaTemperatureHighSolid } from "react-icons/lia";
+import Highlights from "../../Components/Common/Highlights/Highlights";
 const Weather = () => {
 
     const [data, setData] = useState<any>([])
@@ -111,64 +112,48 @@ return (
             <section className="flex flex-col gap-10" >
                 <h2 className="capitalize font-bold text-2xl text-center">Today's Highlights</h2>
                 <div className="grid grid-cols-4 gap-8 justify-center">
-                    <figure className="flex gap-5 items-center p-4 w-52">
-                        <FaTemperatureHalf size="2.5rem" />
-                        <figcaption>
-                            <p>Temperature</p>
-                            {data.main ? <p className="font-bold text-xl" >{data.main.temp} °C</p> : null}
-                        </figcaption>
-                    </figure>
-                    <figure className="flex gap-5 items-center p-4 w-52">
-                        <FaTemperatureHigh size="2.5rem" />
-                        <figcaption>
-                            <p>Highest Temperature</p>
-                            { data.main ? <p className="font-bold text-xl">{data.main.temp_max.toFixed()} °C</p> : null }
-                        </figcaption>
-                    </figure>
-                    <figure className="flex gap-5 items-center p-4 w-52">
-                        <FaTemperatureLow size="2.5rem" />
-                        <figcaption>
-                            <p>Lowest Temperature</p>
-                            { data.main ? <p className="font-bold text-xl">{data.main.temp_min.toFixed()} °C</p> : null }
-                        </figcaption>
-                    </figure>
-                    <figure className="flex gap-5 items-center p-4 w-52">
-                        <LiaTemperatureHighSolid size="2.5rem" />
-                        <figcaption>
-                        <p>Feels Like</p>
-                        { data.main ? <p className="font-bold text-xl">{data.main.feels_like.toFixed()} °C</p> : null }
-                        </figcaption>
-                    </figure>
+                    <Highlights 
+                        Icon={<FaTemperatureHalf size="2.5rem" />}
+                        Name='Temperature'
+                        children={data.main ? <p className="font-bold text-xl" >{data.main.temp} °C</p> : null}
+                    />
+                    <Highlights 
+                        Icon={<FaTemperatureHigh size="2.5rem" />}
+                        Name='Highest Temperature'
+                        children={data.main ? <p className="font-bold text-xl" >{data.main.temp_max.toFixed()} °C</p> : null}
+                    />
+                    <Highlights 
+                        Icon={<FaTemperatureLow size="2.5rem" />}
+                        Name='Lowest Temperature'
+                        children={data.main ? <p className="font-bold text-xl" >{data.main.temp_min.toFixed()} °C</p> : null}
+                    />
+                    <Highlights 
+                        Icon={<LiaTemperatureHighSolid size="2.5rem" />}
+                        Name='Feels Like'
+                        children={data.main ? <p className="font-bold text-xl" >{data.main.feels_like.toFixed()} °C</p> : null}
+                    />
                 </div>
                 <div className="grid grid-cols-4 gap-8 justify-center">
-                    <figure className="flex gap-5 items-center p-4 w-52">
-                        <FaDroplet size="2rem" />
-                        <figcaption>
-                            <p>Humidity</p>
-                            { data.main ? <p className="font-bold text-xl">{data.main.humidity.toFixed()} %</p> : null }
-                        </figcaption>
-                    </figure>
-                    <figure className="flex gap-5 items-center p-4 w-52">
-                        <FaGauge size="2rem" />
-                        <figcaption>
-                            <p>Pressure</p>
-                            { data.main ? <p className="font-bold text-xl">{data.main.pressure.toFixed()} hPa </p> : null }
-                        </figcaption>
-                    </figure>
-                    <figure className="flex gap-5 items-center p-4 w-52">
-                        <FaWind size="2rem" />
-                        <figcaption>
-                            <p>Wind</p>
-                            { data.wind ? <p className="font-bold text-xl">{data.wind.speed.toFixed()} m/s</p> : null }
-                        </figcaption>
-                    </figure>
-                    <figure className="flex gap-5 items-center p-4 w-52">
-                        <FaEye size='2rem' />
-                        <figcaption>
-                            <p>Visibility</p>
-                            { data.wind ? <p className="font-bold text-xl">{data.visibility} km</p> : null }
-                        </figcaption>
-                    </figure>
+                    <Highlights 
+                        Icon={<FaDroplet size="2rem" />}
+                        Name='Humidity'
+                        children={data.main ? <p className="font-bold text-xl" >{data.main.humidity.toFixed()} %</p> : null}
+                    />
+                    <Highlights 
+                        Icon={<FaGauge size="2rem" />}
+                        Name='Pressure'
+                        children={data.main ? <p className="font-bold text-xl" >{data.main.pressure.toFixed()} hPa</p> : null}
+                    />
+                    <Highlights 
+                        Icon={<FaWind size="2rem" />}
+                        Name='Pressure'
+                        children={data.main ? <p className="font-bold text-xl" >{data.wind.speed.toFixed()} m/s</p> : null}
+                    />
+                    <Highlights 
+                        Icon={<FaEye size="2rem" />}
+                        Name='Visibility'
+                        children={data.main ? <p className="font-bold text-xl" >{data.visibility} km</p> : null}
+                    />
                 </div>
             </section>
         </article>
