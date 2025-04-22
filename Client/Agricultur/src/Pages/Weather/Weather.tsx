@@ -99,8 +99,8 @@ return (
         <article className='flex flex-row gap-8'>
             <section className="mx-auto w-72" >
                 <figure className="flex flex-col items-center justify-center gap-1">
-                    <h2 className="font-bold text-2xl text-center" >Present</h2>
-                    {data.weather ? <h3 className="font-bold text-xl text-center">{data.weather[0].main}</h3> : null }
+                    <h2 className="font-bold text-3xl text-center" >Present</h2>
+                    {data.weather ? <h3 className="font-bold text-2xl text-center">{data.weather[0].main}</h3> : null }
                     <img src={`http://openweathermap.org/img/wn/${Icon.icon}@2x.png`} /> 
                     {data.weather ? <p className="Description">{data.weather[0].description}</p> : null }
                     {data.main ? <h3 className="font-bold text-2xl text-center" >{data.main.temp} °C</h3> : null}
