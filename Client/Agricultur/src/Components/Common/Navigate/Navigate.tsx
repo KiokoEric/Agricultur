@@ -6,7 +6,7 @@ interface NavigateProps {
     onClick?:any;
     children?: any;
     Navigation?: any;
-    NavigateText?: string;
+    NavigateText?: any;
     NavigateStyle?: string;
 }
 
