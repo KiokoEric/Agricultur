@@ -57,7 +57,7 @@ const Header: React.FC = () => {
 return (
     <div className='flex items-center justify-between min-h-10 px-2 shadow-lg'>
         <Link to='/Home' className='flex gap-0 items-center justify-center font-bold text-3xl text-black no-underline'>
-            <p className="flex" >'Agri {<FaLeaf color="green" />} cultur'</p>
+            <p className="flex" >Agri {<FaLeaf color="green" />} cultur</p>
         </Link>
         <Navigate
             Navigation='/Home'
