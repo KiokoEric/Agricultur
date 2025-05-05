@@ -9,7 +9,7 @@ const cookieParser = require("cookie-parser");
 dotenv.config();
 UserRouter.use(cookieParser())
 
-const myPassword = process.env.Password
+const myPassword = 'Surrender'
 
 // REGISTRATION OF A USER
 
@@ -51,6 +51,7 @@ UserRouter.post("/Login", async (req, res) => {
 
     const validPassword = await bcrypt.compare(req.body.Password, NewUser.Password)
     if(!validPassword) return res.status(400).send("Password is not valid!");
+    
     // Create and assign a token
 
     if (NewUser) {

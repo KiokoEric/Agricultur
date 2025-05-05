@@ -19,7 +19,7 @@ app.use(cookieParser())
 
 // MONGODB CONNECTION 
 
-const dbUrl = process.env.MONGODB_URL
+const dbUrl = 'mongodb+srv://KiokoEric:Victory2024@cluster0.rhfnv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
 
 mongoose.connect(dbUrl) 
 .then(() => console.log("Connected to the database!"))

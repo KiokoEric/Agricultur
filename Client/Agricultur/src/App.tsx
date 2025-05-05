@@ -1,16 +1,20 @@
 import './App.css';
 import Weather from './Pages/Weather/Weather';
-import Header from './Components/Header/Header';
+// import Header from './Components/Header/Header';
 import { Routes, Route } from 'react-router-dom';
+import Login from './Pages/User/Login/Login';
+import Registration from './Pages/User/Registration/Registration';
 
 
 function App() {
 
   return (
     <div className='App' >
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path='/Weather' element={<Weather />} />
+        <Route path='/Registration' element={<Registration />} />
+        <Route path='/Login' element={<Login />} />
       </Routes>
     </div>
   )

@@ -23,3 +23,7 @@ body {
   font-family: 'Instrument Serif', serif;
   font-size: 18px;
 }
+#Registration, #Login {
+  background-color: #f6e1ac;
+  height: 729px;
+}
