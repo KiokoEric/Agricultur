@@ -7,7 +7,7 @@ import { FaLeaf } from "react-icons/fa6";
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import Button from '../../../Components/Common/Button/Button';
-import RegistrationnImage from '../../../assets/Registration2.png';
+import RegistrationnImage from '../../../assets/Registration.png';
 
 interface FormValues {
     Name: string;
