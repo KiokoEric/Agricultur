@@ -52,7 +52,7 @@ const Registration: React.FC = () => {
     }
 
 return (
-    <div id='Registration' className='flex gap-10 items-center justify-center'>
+    <div id='Registration' className='flex gap-10 items-center justify-center h-screen'>
         <div data-aos="fade-right" data-aos-easing="linear" data-aos-duration="1500">
             <img src={RegistrationnImage} alt="" />
         </div>
