@@ -61,23 +61,22 @@ const Weather = () => {
     useEffect(() => {
 
         try {
-            fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${Location}&units=metric&cnt=7&appid=630ec6679e5afaa746a4d818be324ae1`) 
+            fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${Location}&units=metric&appid=630ec6679e5afaa746a4d818be324ae1`) 
             .then((response) => response.json())
             .then((Data) => {
+                console.log(Data)
                 setWeatherData(Data.list[0])
                 setWeatherIcon(Data.list[0].weather[0].icon)
-                setWeatherData2(Data.list[1])
-                setWeatherIcon2(Data.list[1].weather[0].icon)
-                setWeatherData3(Data.list[2])
-                setWeatherIcon3(Data.list[2].weather[0].icon)
-                setWeatherData4(Data.list[3])
-                setWeatherIcon4(Data.list[3].weather[0].icon)
-                setWeatherData5(Data.list[4])
-                setWeatherIcon5(Data.list[4].weather[0].icon)
-                setWeatherData6(Data.list[5])
-                setWeatherIcon6(Data.list[5].weather[0].icon)
-                setWeatherData7(Data.list[6])
-                setWeatherIcon7(Data.list[6].weather[0].icon)
+                setWeatherData2(Data.list[8])
+                setWeatherIcon2(Data.list[8].weather[0].icon)
+                setWeatherData3(Data.list[16])
+                setWeatherIcon3(Data.list[16].weather[0].icon)
+                setWeatherData4(Data.list[24])
+                setWeatherIcon4(Data.list[24].weather[0].icon)
+                setWeatherData5(Data.list[32])
+                setWeatherIcon5(Data.list[32].weather[0].icon)
+                setWeatherData6(Data.list[39])
+                setWeatherIcon6(Data.list[39].weather[0].icon)
             })
         } catch (error) {
             console.error(error)
@@ -98,7 +97,7 @@ return (
         </article>
         <article className='flex flex-row gap-8'>
             <section className="mx-auto w-72" >
-                <figure className="flex flex-col items-center justify-center gap-1">
+                <figure id="City" className="border-b flex flex-col items-center justify-center gap-1 rounded-sm shadow-xl">
                     <h2 className="font-bold text-3xl text-center" >Present</h2>
                     {data.weather ? <h3 className="font-bold text-2xl text-center">{data.weather[0].main}</h3> : null }
                     <img src={`http://openweathermap.org/img/wn/${Icon.icon}@2x.png`} /> 
@@ -110,7 +109,7 @@ return (
                 </figure>
             </section> 
             <section className="flex flex-col gap-10" >
-                <h2 className="capitalize font-bold text-2xl text-center">Today's Highlights</h2>
+                <h2 className="capitalize font-bold text-2xl text-center underline">Today's Highlights</h2>
                 <div className="grid grid-cols-4 gap-8 justify-center">
                     <Highlights 
                         Icon={<FaTemperatureHalf size="2.5rem" />}
@@ -158,7 +157,7 @@ return (
             </section>
         </article>
         <article className='flex flex-col items-center justify-center gap-8'>
-            <h2 className="font-bold text-2xl" >5 Days Forecast</h2>
+            <h2 className="font-bold text-2xl underline">5 Days Weather Forecast</h2>
             <section className="flex gap-3">
                 {
                     (!weatherData) ?  "" :(
@@ -223,17 +222,6 @@ return (
                             { weatherData6.weather ? <p>{weatherData6.weather[0].description}</p> : null }
                             { weatherData6.main ? <h3 className="font-bold text-xl">{weatherData6.main.temp} °C</h3> : null }
                             <p>{weatherData6.dt_txt}</p>
-                        </figure>
-                    ) 
-                }
-                {
-                    (!weatherData7) ?  "" : (
-                        <figure className="border-2 border-black flex flex-col items-center justify-center gap-5 rounded-md h-80 w-48">
-                            { weatherData7.weather ? <h3 className="font-bold text-2xl" >{weatherData7.weather[0].main}</h3> : null}
-                            <img src={`http://openweathermap.org/img/wn/${WeatherIcon7}@2x.png`} alt="" /> 
-                            { weatherData7.weather ? <p>{weatherData7.weather[0].description}</p> : null }
-                            { weatherData7.main ? <h3 className="font-bold text-xl">{weatherData7.main.temp} °C</h3> : null }
-                            <p>{weatherData7.dt_txt}</p>
                         </figure>
                     ) 
                 }

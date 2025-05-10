@@ -10,7 +10,7 @@ dotenv.config();
 // MIDDLEWARE
 
 app.use(cors({
-    origin: ["http://localhost:5173/"],
+    origin: ["http://localhost:5173"],
     methods: ["POST", "GET", "PUT" ,"DELETE"],  
     credentials: true
 }))
@@ -19,7 +19,7 @@ app.use(cookieParser())
 
 // MONGODB CONNECTION 
 
-const dbUrl = 'mongodb+srv://KiokoEric:Victory2024@cluster0.rhfnv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+const dbUrl = 'mongodb+srv://KiokoEric:Victory2025@agricultur.tgmtmel.mongodb.net/Agricultur?retryWrites=true&w=majority&appName=Agricultur'
 
 mongoose.connect(dbUrl) 
 .then(() => console.log("Connected to the database!"))

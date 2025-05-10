@@ -28,7 +28,7 @@ const Login:React.FC  = () => {
         Password: z.string().min(1, { message: 'Password is required'}),
     });
 
-    // const [ _, setCookie] = useCookies(["auth_token"]); 
+    const [_,setCookie] = useCookies(["auth_token"]);
     const { enqueueSnackbar } = useSnackbar();
 
     const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({
@@ -39,8 +39,8 @@ const Login:React.FC  = () => {
 
     const onLogin : SubmitHandler<FormValues> = async (data) => {
         try {
-            const response = await axios.post("https://localhost:4000/Users/Login", data)
-                // setCookie("auth_token", response.data.Token)
+            const response = await axios.post("http://localhost:4000/Users/Login", data)
+                setCookie("auth_token", response.data.Token)
                 window.localStorage.setItem("UserID", response.data.UserID)
                 enqueueSnackbar("Logged in successfully!" , {variant: "success"}) 
                 setTimeout(() => {
@@ -55,11 +55,11 @@ const Login:React.FC  = () => {
     const DemoLogin = async (e: any) => {
         e.preventDefault()
         const data = {
-            Email : "kiokoerick040@gmail.com" , Password : "Victory2024"
+            Email : "kiokoerick040@gmail.com" , Password : "Triumph2025"
         }
         try {
-            const response = await axios.post("https://localhost:4000/Users/Login", data)
-                // setCookie("auth_token", response.data.Token)
+            const response = await axios.post("http://localhost:4000/Users/Login", data)
+                setCookie("auth_token", response.data.Token)
                 window.localStorage.setItem("UserID", response.data.UserID)
                 enqueueSnackbar("Logged in successfully!" , {variant: "success"}) 
                 window.location.reload();
@@ -92,12 +92,12 @@ return (
             <div className='flex gap-5 mt-5'>
                 <Button
                     ButtonText='Login'
-                    ButtonStyle='bg-green-600 cursor-pointer flex items-center justify-center h-8 text-center text-white px-3 py-1 rounded w-40'
+                    ButtonStyle='bg-green-600 cursor-pointer flex items-center justify-center h-8 text-center text-white px-3 py-1 rounded w-40 hover:bg-black'
                     onClick={handleSubmit(onLogin)}
                 />
                 <Button
                     ButtonText='Demo Login'
-                    ButtonStyle='bg-green-600 cursor-pointer flex items-center justify-center h-8 text-center text-white px-3 py-1 rounded w-40'
+                    ButtonStyle='bg-green-600 cursor-pointer flex items-center justify-center h-8 text-center text-white px-3 py-1 rounded w-40 hover:bg-black'
                     onClick={DemoLogin}
                 />
             </div>
