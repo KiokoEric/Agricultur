@@ -25,5 +25,7 @@ body {
 }
 #Registration, #Login, #Home {
   background-color: #f6e1ac;
-  height: 730px;
+}
+#Features {
+  height: 170px;
 }

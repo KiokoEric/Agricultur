@@ -70,7 +70,7 @@ const Login:React.FC  = () => {
     }
 
 return (
-    <div id='Login' className='grid grid-cols-2 items-center justify-center'>
+    <div id='Login' className='grid grid-cols-2 items-center justify-center h-screen'>
         <div data-aos="fade-right" data-aos-easing="linear" data-aos-duration="1500" className='flex items-center justify-center' >
             <img src={LoginImage} alt="" className='w-11/12' />
         </div>
