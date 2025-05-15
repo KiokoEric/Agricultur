@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap');
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 html {
   overflow-x: hidden;
   scroll-behavior: smooth;
@@ -20,27 +15,18 @@ body {
   margin-bottom: 1rem;
   overflow-x: hidden;
 }
-#Header {
-  padding: 2px 5px;
-  margin-bottom: 1rem;
-}
 #Input[type = "text"] {
   font-family: 'Instrument Serif', serif;
   font-size: 18px;
 }
-#Profile {
-  padding: 6px;
-}
 #Highlights {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-  padding: 5px 5px;
-}
-#City {
-  padding-bottom: 4px;
 }
 /* #Registration, #Login, #Home {
   background-color: #f6e1ac;
 } */
-#Features {
-  height: 170px;
+#Message {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  height: 88vh;
 }

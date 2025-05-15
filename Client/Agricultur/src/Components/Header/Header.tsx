@@ -56,7 +56,7 @@ const Header: React.FC = () => {
     }
 
 return (
-    <div id="Header" className='flex items-center justify-between min-h-10 px-2 shadow-lg'>
+    <div id="Header" className='flex items-center justify-between min-h-10 mb-4 py-0.5 px-1.5 shadow-lg'>
         <Link to='/' className='flex gap-0 items-center justify-center font-bold text-3xl text-black no-underline'>
             <p className="flex" >Agri {<FaLeaf color="green" />} cultur</p>
         </Link>
@@ -68,7 +68,7 @@ return (
                 {!UserID?
                     <Navigate
                         Navigation="/Registration"
-                        NavigateStyle="bg-black cursor-pointer flex items-center justify-center h-8 text-center text-base text-white px-5 py-1 rounded w-20"
+                        NavigateStyle="bg-black cursor-pointer flex items-center justify-center h-8 text-center text-base text-white px-5 py-1 rounded w-24"
                         NavigateText="Sign Up"
                     /> : null
                 }
@@ -94,7 +94,7 @@ return (
                 <Navigate
                     ID='ProfileIcon'
                     Navigation={`/Profile/${UserID}`}
-                    children={<FaUser size="2rem" id="Profile" className="bg-black text-white cursor-pointer  rounded-full" />}
+                    children={<FaUser size="2rem" id="Profile" className="bg-black text-white cursor-pointer p-1.5 rounded-full" />}
                 />
                 : null
             }
