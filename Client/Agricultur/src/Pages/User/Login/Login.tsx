@@ -75,7 +75,7 @@ return (
             <img src={LoginImage} alt="" className='w-11/12' />
         </div>
         <form id='Loginform' method="post" onSubmit={handleSubmit(onLogin)} encType="multipart/form-data" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="1500" className='flex flex-col items-center gap-2'>
-            <div className='my-10'>
+            <div>
                 <h2 className='flex text-5xl'>Welcome to Agri {<FaLeaf color="green" />} cultur</h2>
                 <p className='mt-5 text-xl text-center'>Kindly Login</p>
             </div>

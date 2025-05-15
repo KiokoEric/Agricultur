@@ -57,7 +57,7 @@ return (
             <img src={RegistrationnImage} alt="" />
         </div>
         <form method="post" onSubmit={handleSubmit(onRegistration)} encType="multipart/form-data" className='flex flex-col items-center gap-2' data-aos="fade-left" data-aos-easing="linear" data-aos-duration="1500">
-            <div className='my-10'>
+            <div>
                 <h2 className='flex text-5xl'>Welcome to Agri {<FaLeaf color="green" />} cultur</h2>
                 <p className='mt-10 text-xl text-center'>Create your account.</p>
             </div>

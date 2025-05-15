@@ -29,8 +29,6 @@ const Weather = () => {
     const [WeatherIcon5, setWeatherIcon5] = useState<any>([])
     const [weatherData6, setWeatherData6] = useState<any>([])
     const [WeatherIcon6, setWeatherIcon6] = useState<any>([])
-    const [weatherData7, setWeatherData7] = useState<any>([])
-    const [WeatherIcon7, setWeatherIcon7] = useState<any>([])
 
     const handleSearch = (e: any) => {
         setLocation(e.target.value)
@@ -90,14 +88,14 @@ return (
             <form className="border-b-2 border-black flex items-center py-0.5 rounded-sm w-96" onSubmit={fetchData}>
                 <IoSearchSharp size="2rem" />
                 <input type="text" name="" id="Input" placeholder='Search Location...' value={Location} onChange={handleSearch} className="border-none outline-0 w-80" />
-                <button className="bg-black cursor-pointer text-lg text-white p-2 rounded-sm w-28" onClick={fetchData}>Search</button>
+                <button className="bg-black cursor-pointer text-lg text-white px-0 rounded-sm w-28" onClick={fetchData}>Search</button>
             </form>
             <p className='text-center text-lg text-red-700'>{SearchError}</p>
             <p className='text-center text-lg text-red-700'>{Error}</p>
         </article>
         <article className='flex flex-row gap-8'>
             <section className="mx-auto w-72" >
-                <figure id="City" className="border-b flex flex-col items-center justify-center gap-1 rounded-sm shadow-xl">
+                <figure className="border-b flex flex-col items-center justify-center gap-1 p-1 rounded-sm shadow-xl">
                     <h2 className="font-bold text-3xl text-center" >Present</h2>
                     {data.weather ? <h3 className="font-bold text-2xl text-center">{data.weather[0].main}</h3> : null }
                     <img src={`http://openweathermap.org/img/wn/${Icon.icon}@2x.png`} /> 
