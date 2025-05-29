@@ -27,8 +27,9 @@ mongoose.connect(dbUrl)
 // IMPORT ROUTES
 
     const UserRoute = require("./Routes/UserRoute");
+    const CropRoute = require("./Routes/CropRoute.js"); 
 
     app.use("/Users", UserRoute);
-    
+    app.use("/Crops", CropRoute);
 
 app.listen(4000)
