@@ -22,9 +22,14 @@ body {
 #Highlights {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
 }
-/* #Registration, #Login, #Home {
-  background-color: #f6e1ac;
-} */
+#Blight {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(./assets/Plants.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 250px;
+  width: 100%;
+}
 #Message {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;

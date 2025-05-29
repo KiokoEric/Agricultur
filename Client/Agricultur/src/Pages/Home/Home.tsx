@@ -36,6 +36,7 @@ const Home: React.FC = () => {
                     HoveredText='Cultivation'
                 />
                 <Features
+                    Navigate='/Pests_and_Diseases'
                     Image={Pests}
                     HoveredText='Pests and Diseases'
                 />

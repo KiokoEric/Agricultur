@@ -56,7 +56,7 @@ const Header: React.FC = () => {
     }
 
 return (
-    <div id="Header" className='flex items-center justify-between min-h-10 mb-4 py-0.5 px-1.5 shadow-lg'>
+    <div id="Header" className='flex items-center justify-between min-h-10 py-0.5 px-1.5 shadow-lg'>
         <Link to='/' className='flex gap-0 items-center justify-center font-bold text-3xl text-black no-underline'>
             <p className="flex" >Agri {<FaLeaf color="green" />} cultur</p>
         </Link>
