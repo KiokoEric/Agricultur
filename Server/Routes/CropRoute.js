@@ -32,6 +32,36 @@ CropRoute.get("/AllCrops", async (req, res) => {
     }
 })
 
+// GETTING A CROP BY ITS ID
+
+CropRoute.get('/:id', async (req, res) => {
+    try {
+    const crop = await Crop.findById(req.params.id);
+    if (!crop) {
+        return res.status(404).json({ message: 'Crop is not found' });
+    }
+    res.json(crop);
+    } catch (error) {
+    res.status(500).json({ message: 'Server Error' });
+    }
+});
+
+// GETTING A CROP BY ITS NAME
+
+CropRoute.get('/:Name', async (req, res) => {
+    const Name = req.params.Name
+
+    try {
+    const cropdetails = await Crop.findOne({ Name: Name }) 
+    if (!cropdetails) {
+        return res.status(404).json({ message: 'Crop details are not found' });
+    }
+    res.json(cropdetails);
+    } catch (error) {
+    res.status(500).json({ message: 'Server Error' });
+    }
+});
+
 
 // UPDATING A CROP DETAILS BASED ON THE CROP ID
 
@@ -56,19 +86,5 @@ CropRoute.delete("/:id", async (req, res) => {
         res.send(err)
     }
 })
-
-// GETTING A CROP BY ITS ID
-
-CropRoute.get('/:id', async (req, res) => {
-    try {
-    const crop = await Crop.findById(req.params.id);
-    if (!crop) {
-        return res.status(404).json({ message: 'Crop is not found' });
-    }
-    res.json(crop);
-    } catch (error) {
-    res.status(500).json({ message: 'Server Error' });
-    }
-});
 
 module.exports = CropRoute

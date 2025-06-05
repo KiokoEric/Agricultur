@@ -1,9 +1,9 @@
 import { FaEye } from "react-icons/fa";
 import { FaWind } from "react-icons/fa";
+import { GiWorld } from "react-icons/gi";
 import { FaGauge } from "react-icons/fa6";
 import { useEffect, useState } from 'react';
 import { FaDroplet } from "react-icons/fa6";
-import { IoSearchSharp } from "react-icons/io5";
 import { FaTemperatureLow } from "react-icons/fa";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { FaTemperatureHigh } from "react-icons/fa";
@@ -83,10 +83,10 @@ const Weather = () => {
     }, [data])
 
 return (
-    <div className="capitalize flex flex-col gap-6 items-center justify-center">
+    <div className="capitalize flex flex-col gap-6 items-center justify-center pt-5">
         <article>
             <form className="border-b-2 border-black flex items-center py-0.5 rounded-sm w-96" onSubmit={fetchData}>
-                <IoSearchSharp size="2rem" />
+                <GiWorld size="2rem" className="mr-2" />
                 <input type="text" name="" id="Input" placeholder='Search Location...' value={Location} onChange={handleSearch} className="border-none outline-0 w-80" />
                 <button className="bg-black cursor-pointer text-lg text-white px-0 rounded-sm w-28" onClick={fetchData}>Search</button>
             </form>
