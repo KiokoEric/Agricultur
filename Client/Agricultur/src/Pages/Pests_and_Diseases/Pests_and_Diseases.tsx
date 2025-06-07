@@ -1,15 +1,14 @@
 import axios from 'axios';
 import { GiPlantRoots } from "react-icons/gi";
 import { IoSearchSharp } from "react-icons/io5";
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 const Pests_and_Diseases: React.FC = () => {
 
     // USESTATE
 
-    const [Details, setDetails] = useState<string>('')
+    const [Details, setDetails] = useState<any>([])
     const [cropName, setcropName] = useState<string>('')
-    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     // HANDLE SEARCH FUNCTION
 
@@ -25,12 +24,9 @@ const Pests_and_Diseases: React.FC = () => {
         try {
             axios.get(`http://localhost:4000/Crops/${cropName}`)
             .then(response => {
-                console.log(response.data.plantStages.Fruiting)
+                console.log(response.data)
                 setDetails(response.data) 
             })
-            setTimeout(() => {
-                setIsLoading(false);
-            }, 2500);
         }
         catch (error) {
             console.log(error)
@@ -54,6 +50,59 @@ return (
                 <button onClick={onSearch} className="bg-green-700 px-3 py-2 rounded"><IoSearchSharp size="1.5rem" color="white" className="cursor-pointer" /></button>
             </form>
             <span className='text-red-700'></span>
+        </section>
+        <section>
+            {
+                (!Details) ? <h2 className='font-bold text-red-700 text-center text-5xl w-custom'>No Results Found</h2> :
+                <div className='px-2'>
+                    {Details.Crop? <h2 className='font-bold mb-5 text-5xl'>{Details.Crop}</h2> : null }
+                    <div>
+                        { Details.plantStages? <h3 className='font-bold mb-5 text-center text-4xl underline'>Seedling Stage</h3> : null }
+                        <div className='grid grid-cols-5 items-end gap-5'>
+                            <figure>
+                                {
+                                    Details.plantStages? <img src={Details.plantStages.Seedling.Pests[0].ImageUrl} alt="" className='rounded-sm' /> : null 
+                                }
+                                {
+                                    Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Seedling.Pests[0].Name}</figcaption> : null
+                                }
+                            </figure>
+                            <figure>
+                                {
+                                    Details.plantStages? <img src={Details.plantStages.Seedling.Pests[1].ImageUrl} alt="" className='rounded-sm' /> : null 
+                                }
+                                {
+                                    Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Seedling.Pests[1].Name}</figcaption> : null
+                                }
+                            </figure>
+                            <figure>
+                                {
+                                    Details.plantStages? <img src={Details.plantStages.Seedling.Pests[2].ImageUrl} alt="" className='rounded-sm' /> : null 
+                                }
+                                {
+                                    Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Seedling.Pests[2].Name}</figcaption> : null
+                                }
+                            </figure>
+                            <figure>
+                                {
+                                    Details.plantStages? <img src={Details.plantStages.Seedling.Pests[3].ImageUrl} alt="" className='rounded-sm' /> : null 
+                                }
+                                {
+                                    Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Seedling.Pests[3].Name}</figcaption> : null
+                                }
+                            </figure>
+                            <figure>
+                                {
+                                    Details.plantStages? <img src={Details.plantStages.Seedling.Pests[4].ImageUrl} alt="" className='rounded-sm' /> : null 
+                                }
+                                {
+                                    Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Seedling.Pests[4].Name}</figcaption> : null
+                                }
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            }
         </section>
     </div>
 )
