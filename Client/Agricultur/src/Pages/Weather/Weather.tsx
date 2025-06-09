@@ -1,22 +1,23 @@
 import { FaEye } from "react-icons/fa";
 import { FaWind } from "react-icons/fa";
+import { GiWorld } from "react-icons/gi";
 import { FaGauge } from "react-icons/fa6";
 import { useEffect, useState } from 'react';
 import { FaDroplet } from "react-icons/fa6";
-import { IoSearchSharp } from "react-icons/io5";
 import { FaTemperatureLow } from "react-icons/fa";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { FaTemperatureHigh } from "react-icons/fa";
 import { FaTemperatureHalf } from "react-icons/fa6";
 import { LiaTemperatureHighSolid } from "react-icons/lia";
 import Highlights from "../../Components/Common/Highlights/Highlights";
+
 const Weather = () => {
 
     const [data, setData] = useState<any>([])
     const [Icon, setIcon] = useState<any>([])
     const [Error, setError] = useState<string>("")
     const [SearchError, setSearchError] = useState<string>("")
-    const [Location, setLocation] = useState<string>("Nairobi")
+    const [Location, setLocation] = useState<string>("")
     const [weatherData, setWeatherData] = useState<any>([])
     const [WeatherIcon, setWeatherIcon] = useState<any>([])
     const [weatherData2, setWeatherData2] = useState<any>([])
@@ -62,7 +63,6 @@ const Weather = () => {
             fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${Location}&units=metric&appid=630ec6679e5afaa746a4d818be324ae1`) 
             .then((response) => response.json())
             .then((Data) => {
-                console.log(Data)
                 setWeatherData(Data.list[0])
                 setWeatherIcon(Data.list[0].weather[0].icon)
                 setWeatherData2(Data.list[8])
@@ -83,11 +83,11 @@ const Weather = () => {
     }, [data])
 
 return (
-    <div className="capitalize flex flex-col gap-6 items-center justify-center">
+    <div className="capitalize flex flex-col gap-6 items-center justify-center pt-5">
         <article>
             <form className="border-b-2 border-black flex items-center py-0.5 rounded-sm w-96" onSubmit={fetchData}>
-                <IoSearchSharp size="2rem" />
-                <input type="text" name="" id="Input" placeholder='Search Location...' value={Location} onChange={handleSearch} className="border-none outline-0 w-80" />
+                <GiWorld size="2rem" className="mr-2" />
+                <input type="text" name="" id="Input" placeholder='Search Location...' value={Location} onChange={handleSearch} className="bg-white border-none outline-0 w-80" />
                 <button className="bg-black cursor-pointer text-lg text-white px-0 rounded-sm w-28" onClick={fetchData}>Search</button>
             </form>
             <p className='text-center text-lg text-red-700'>{SearchError}</p>
@@ -98,7 +98,7 @@ return (
                 <figure className="border-b flex flex-col items-center justify-center gap-1 p-1 rounded-sm shadow-xl">
                     <h2 className="font-bold text-3xl text-center" >Present</h2>
                     {data.weather ? <h3 className="font-bold text-2xl text-center">{data.weather[0].main}</h3> : null }
-                    <img src={`http://openweathermap.org/img/wn/${Icon.icon}@2x.png`} /> 
+                    <img src={`http://openweathermap.org/img/wn/${Icon.icon}@2x.png`} alt="Weather_Icon" /> 
                     {data.weather ? <p className="Description">{data.weather[0].description}</p> : null }
                     {data.main ? <h3 className="font-bold text-2xl text-center" >{data.main.temp} °C</h3> : null}
                     <figcaption className="flex items-center justify-center gap-1 mx-auto w-52" >

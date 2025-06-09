@@ -19,12 +19,23 @@ body {
   font-family: 'Instrument Serif', serif;
   font-size: 18px;
 }
+#Home {
+  height: 77vh;
+}
 #Highlights {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
 }
 #Blight {
   background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(./assets/Plants.jpg);
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 250px;
+  width: 100%;
+}
+#Cultivation {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(./assets/Cultivation.jpg);
+  background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
   height: 250px;
