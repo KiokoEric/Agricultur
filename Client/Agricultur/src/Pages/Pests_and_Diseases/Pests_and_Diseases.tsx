@@ -1,8 +1,9 @@
-import axios from 'axios';
+import axios from "axios";
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import { GiPlantRoots } from "react-icons/gi";
 import { IoSearchSharp } from "react-icons/io5";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -46,7 +47,7 @@ const Pests_and_Diseases: React.FC = () => {
 
 return (
     <div>
-        <section id='Blight' className='flex flex-col items-center justify-center gap-5 mb-10 text-white'>
+        <section id='Blight' className='flex flex-col items-center justify-center gap-5 mb-5 text-white'>
             <h3 className='font-bold text-xl sm:text-3xl'>Search among the crops available</h3>
             <form className="bg-white flex flex-row items-center justify-between gap-2 pl-2 pr-1 py-1 rounded-sm w-11/12 sm:w-4/5 lg:w-3/5 xl:w-2/5">
                 <GiPlantRoots size="2.5rem" color="black"  />
@@ -71,50 +72,50 @@ return (
                         { Details.plantStages? <h3 className='font-bold mb-5 text-center text-3xl underline'>Seedling Stage</h3> : null }
                         { Details.plantStages? <h3 className='font-bold mb-5 text-3xl'>Pests</h3> : null }
                         <div className='grid grid-cols-5 items-end gap-5'>
-                            <figure className='cursor-pointer'>
+                            <Link to={`/Pests_and_Diseases_Details/${Details.plantStages? Details.plantStages.Seedling.Pests[0]._id: null}`} id={Details.plantStages? Details.plantStages.Seedling.Pests[0]._id : null } className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Seedling.Pests[0].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
                                 {
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Seedling.Pests[0].Name}</figcaption> : null
                                 }
-                            </figure>
-                            <figure className='cursor-pointer'>
+                            </Link>
+                            <Link to={`/Pests_and_Diseases_Details/${Details.plantStages? Details.plantStages.Seedling.Pests[1]._id: null}`} id={Details.plantStages? Details.plantStages.Seedling.Pests[1]._id : null } className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Seedling.Pests[1].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
                                 {
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Seedling.Pests[1].Name}</figcaption> : null
                                 }
-                            </figure>
-                            <figure className='cursor-pointer'>
+                            </Link>
+                            <Link to={`/Pests_and_Diseases_Details/${Details.plantStages? Details.plantStages.Seedling.Pests[2]._id: null}`} id={Details.plantStages? Details.plantStages.Seedling.Pests[2]._id: null} className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Seedling.Pests[2].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
                                 {
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Seedling.Pests[2].Name}</figcaption> : null
                                 }
-                            </figure>
-                            <figure className='cursor-pointer'>
+                            </Link>
+                            <Link to={`/Pests_and_Diseases_Details/${Details.plantStages? Details.plantStages.Seedling.Pests[3]._id: null}`} id={Details.plantStages? Details.plantStages.Seedling.Pests[3]._id : null} className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Seedling.Pests[3].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
                                 {
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Seedling.Pests[3].Name}</figcaption> : null
                                 }
-                            </figure>
-                            <figure className='cursor-pointer'>
+                            </Link>
+                            <Link to={`/Pests_and_Diseases_Details/${Details.plantStages? Details.plantStages.Seedling.Pests[4]._id: null}`} id={Details.plantStages? Details.plantStages.Seedling.Pests[4]._id : null} className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Seedling.Pests[4].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
                                 {
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Seedling.Pests[4].Name}</figcaption> : null
                                 }
-                            </figure>
+                            </Link>
                         </div>
                         { Details.plantStages? <h3 className='font-bold mb-5 mt-5 text-3xl'>Diseases</h3> : null }
                         <div className='grid grid-cols-5 items-end gap-5'>
-                            <figure className='cursor-pointer'>
+                            <figure id={Details.plantStages? Details.plantStages.Seedling.Diseases[0]._id : null} className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Seedling.Diseases[0].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
@@ -122,7 +123,7 @@ return (
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Seedling.Diseases[0].Name}</figcaption> : null
                                 }
                             </figure>
-                            <figure className='cursor-pointer'>
+                            <figure id={Details.plantStages? Details.plantStages.Seedling.Diseases[1]._id: null}  className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Seedling.Diseases[1].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
@@ -130,7 +131,7 @@ return (
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Seedling.Diseases[1].Name}</figcaption> : null
                                 }
                             </figure>
-                            <figure className='cursor-pointer'>
+                            <figure id={Details.plantStages? Details.plantStages.Seedling.Diseases[2]._id: null}  className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Seedling.Diseases[2].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
@@ -138,7 +139,7 @@ return (
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Seedling.Diseases[2].Name}</figcaption> : null
                                 }
                             </figure>
-                            <figure className='cursor-pointer'>
+                            <figure id={Details.plantStages? Details.plantStages.Seedling.Diseases[3]._id: null}  className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Seedling.Diseases[3].ImageUrl} alt="" className='rounded-sm' height='50px' /> : null 
                                 }
@@ -146,7 +147,7 @@ return (
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Seedling.Diseases[3].Name}</figcaption> : null
                                 }
                             </figure>
-                            <figure className='cursor-pointer'>
+                            <figure id={Details.plantStages? Details.plantStages.Seedling.Diseases[4]._id: null}  className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Seedling.Diseases[4].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
@@ -158,7 +159,7 @@ return (
                         { Details.plantStages? <h3 className='font-bold mb-5 mt-10 text-center text-3xl underline'>Vegetative Stage</h3> : null }
                         { Details.plantStages? <h3 className='font-bold mb-5 text-3xl'>Pests</h3> : null }
                         <div className='grid grid-cols-5 items-end gap-5'>
-                            <figure className='cursor-pointer'>
+                            <figure id={Details.plantStages? Details.plantStages.Vegetative.Pests[0]._id: null}  className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Vegetative.Pests[0].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
@@ -166,7 +167,7 @@ return (
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Vegetative.Pests[0].Name}</figcaption> : null
                                 }
                             </figure>
-                            <figure className='cursor-pointer'>
+                            <figure id={Details.plantStages? Details.plantStages.Vegetative.Pests[1]._id: null}  className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Vegetative.Pests[1].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
@@ -174,7 +175,7 @@ return (
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Vegetative.Pests[1].Name}</figcaption> : null
                                 }
                             </figure>
-                            <figure className='cursor-pointer'>
+                            <figure id={Details.plantStages? Details.plantStages.Vegetative.Pests[2]._id: null}  className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Vegetative.Pests[2].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
@@ -182,7 +183,7 @@ return (
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Vegetative.Pests[2].Name}</figcaption> : null
                                 }
                             </figure>
-                            <figure className='cursor-pointer'>
+                            <figure id={Details.plantStages? Details.plantStages.Vegetative.Pests[3]._id: null}  className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Vegetative.Pests[3].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
@@ -190,7 +191,7 @@ return (
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Vegetative.Pests[3].Name}</figcaption> : null
                                 }
                             </figure>
-                            <figure className='cursor-pointer'>
+                            <figure id={Details.plantStages? Details.plantStages.Vegetative.Pests[4]._id: null}  className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Vegetative.Pests[4].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
@@ -201,7 +202,7 @@ return (
                         </div>
                         { Details.plantStages? <h3 className='font-bold mb-5 mt-5 text-3xl'>Diseases</h3> : null }
                         <div className='flex items-center justify-center gap-4'>
-                            <figure className='cursor-pointer'>
+                            <figure id={Details.plantStages? Details.plantStages.Vegetative.Diseases[0]._id: null} className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Vegetative.Diseases[0].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
@@ -209,7 +210,7 @@ return (
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Vegetative.Diseases[0].Name}</figcaption> : null
                                 }
                             </figure>
-                            <figure className='cursor-pointer'>
+                            <figure id={Details.plantStages? Details.plantStages.Vegetative.Diseases[1]._id: null}  className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Vegetative.Diseases[1].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
@@ -217,7 +218,7 @@ return (
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Vegetative.Diseases[1].Name}</figcaption> : null
                                 }
                             </figure>
-                            <figure className='cursor-pointer'>
+                            <figure id={Details.plantStages? Details.plantStages.Vegetative.Diseases[2]._id: null}  className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Vegetative.Diseases[2].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
@@ -225,7 +226,7 @@ return (
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Vegetative.Diseases[2].Name}</figcaption> : null
                                 }
                             </figure>
-                            <figure className='cursor-pointer'>
+                            <figure id={Details.plantStages? Details.plantStages.Vegetative.Diseases[3]._id: null}  className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Vegetative.Diseases[3].ImageUrl} alt="" className='rounded-sm' height='50px' /> : null 
                                 }
@@ -236,59 +237,68 @@ return (
                         </div>
                         { Details.plantStages? <h3 className='font-bold mb-5 mt-10 text-center text-3xl underline'>Fruiting Stage</h3> : null }
                         { Details.plantStages? <h3 className='font-bold mb-5 text-3xl'>Pests</h3> : null }
-                        <div className='grid grid-cols-6 items-end gap-5'>
-                            <figure className='cursor-pointer'>
+                        <Swiper
+                            slidesPerView={5}
+                            spaceBetween={30}
+                            freeMode={true}
+                            pagination={{
+                            clickable: true,
+                            }}
+                            modules={[FreeMode, Pagination]}
+                            className="mySwiper"
+                        >
+                            <SwiperSlide id={Details.plantStages? Details.plantStages.Fruiting.Pests[0]._id: null} className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Fruiting.Pests[0].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
                                 {
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Fruiting.Pests[0].Name}</figcaption> : null
                                 }
-                            </figure>
-                            <figure className='cursor-pointer'>
+                            </SwiperSlide>
+                            <SwiperSlide id={Details.plantStages? Details.plantStages.Fruiting.Pests[1]._id: null}  className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Fruiting.Pests[1].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
                                 {
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Fruiting.Pests[1].Name}</figcaption> : null
                                 }
-                            </figure>
-                            <figure className='cursor-pointer'>
+                            </SwiperSlide>
+                            <SwiperSlide id={Details.plantStages? Details.plantStages.Fruiting.Pests[2]._id: null}  className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Fruiting.Pests[2].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
                                 {
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Fruiting.Pests[2].Name}</figcaption> : null
                                 }
-                            </figure>
-                            <figure className='cursor-pointer'>
+                            </SwiperSlide>
+                            <SwiperSlide id={Details.plantStages? Details.plantStages.Fruiting.Pests[3]._id: null}  className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Fruiting.Pests[3].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
                                 {
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Fruiting.Pests[3].Name}</figcaption> : null
                                 }
-                            </figure>
-                            <figure className='cursor-pointer'>
+                            </SwiperSlide>
+                            <SwiperSlide id={Details.plantStages? Details.plantStages.Fruiting.Pests[4]._id: null}  className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Fruiting.Pests[4].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
                                 {
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Fruiting.Pests[4].Name}</figcaption> : null
                                 }
-                            </figure>
-                            <figure className='cursor-pointer'>
+                            </SwiperSlide>
+                            <SwiperSlide id={Details.plantStages? Details.plantStages.Fruiting.Pests[5]._id: null}  className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Fruiting.Pests[5].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
                                 {
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Fruiting.Pests[5].Name}</figcaption> : null
                                 }
-                            </figure>
-                        </div>
+                            </SwiperSlide>
+                        </Swiper>
                         { Details.plantStages? <h3 className='font-bold mb-5 mt-5 text-3xl'>Diseases</h3> : null }
                         <div className='grid grid-cols-5 items-center justify-center gap-4'>
-                            <figure className='cursor-pointer'>
+                            <figure id={Details.plantStages? Details.plantStages.Fruiting.Diseases[0]._id: null} className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Fruiting.Diseases[0].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
@@ -296,7 +306,7 @@ return (
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Fruiting.Diseases[0].Name}</figcaption> : null
                                 }
                             </figure>
-                            <figure className='cursor-pointer'>
+                            <figure id={Details.plantStages? Details.plantStages.Fruiting.Diseases[1]._id: null} className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Fruiting.Diseases[1].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
@@ -304,7 +314,7 @@ return (
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Fruiting.Diseases[1].Name}</figcaption> : null
                                 }
                             </figure>
-                            <figure className='cursor-pointer'>
+                            <figure id={Details.plantStages? Details.plantStages.Fruiting.Diseases[2]._id: null} className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Fruiting.Diseases[2].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
@@ -312,7 +322,7 @@ return (
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Fruiting.Diseases[2].Name}</figcaption> : null
                                 }
                             </figure>
-                            <figure className='cursor-pointer'>
+                            <figure id={Details.plantStages? Details.plantStages.Fruiting.Diseases[3]._id: null} className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Fruiting.Diseases[3].ImageUrl} alt="" className='rounded-sm' height='50px' /> : null 
                                 }
@@ -320,7 +330,7 @@ return (
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Fruiting.Diseases[3].Name}</figcaption> : null
                                 }
                             </figure>
-                            <figure className='cursor-pointer'>
+                            <figure id={Details.plantStages? Details.plantStages.Fruiting.Diseases[4]._id: null} className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Fruiting.Diseases[4].ImageUrl} alt="" className='rounded-sm' height='50px' /> : null 
                                 }
@@ -331,65 +341,32 @@ return (
                         </div>
                         { Details.plantStages? <h3 className='font-bold mb-5 mt-10 text-center text-3xl underline'>Harvesting Stage</h3> : null }
                         { Details.plantStages? <h3 className='font-bold mb-5 text-3xl'>Pests</h3> : null }
-                        <Swiper
-                            slidesPerView={5}
-                            spaceBetween={30}
-                            freeMode={true}
-                            pagination={{
-                            clickable: true,
-                            }}
-                            modules={[FreeMode, Pagination]}
-                            className="mySwiper"
-                        >
-                            <SwiperSlide className='cursor-pointer'>
-                                {
-                                    Details.plantStages? <img src={Details.plantStages.Harvesting.Pests[0].ImageUrl} alt="" className='rounded-sm' /> : null 
-                                }
-                                {
-                                    Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Harvesting.Pests[0].Name}</figcaption> : null
-                                }
-                            </SwiperSlide>
-                            <SwiperSlide className='cursor-pointer'>
+                        <div className='flex items-center justify-center gap-5'>
+                            <figure id={Details.plantStages? Details.plantStages.Harvesting.Diseases[0]._id: null} className='cursor-pointer'>
+                            {
+                                Details.plantStages? <img src={Details.plantStages.Harvesting.Pests[0].ImageUrl} alt="" className='rounded-sm' /> : null 
+                            }
+                            {
+                                Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Harvesting.Pests[0].Name}</figcaption> : null
+                            }
+                            </figure>
+                            <figure id={Details.plantStages? Details.plantStages.Harvesting.Diseases[0]._id: null} className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Harvesting.Pests[1].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
                                 {
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Harvesting.Pests[1].Name}</figcaption> : null
                                 }
-                            </SwiperSlide>
-                            <SwiperSlide className='cursor-pointer'>
+                            </figure>
+                            <figure id={Details.plantStages? Details.plantStages.Harvesting.Diseases[0]._id: null} className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Harvesting.Pests[2].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
                                 {
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Harvesting.Pests[2].Name}</figcaption> : null
                                 }
-                            </SwiperSlide>
-                            <SwiperSlide className='cursor-pointer'>
-                                {
-                                    Details.plantStages? <img src={Details.plantStages.Harvesting.Pests[3].ImageUrl} alt="" className='rounded-sm' /> : null 
-                                }
-                                {
-                                    Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Harvesting.Pests[3].Name}</figcaption> : null
-                                }
-                            </SwiperSlide>
-                            <SwiperSlide className='cursor-pointer'>
-                                {
-                                    Details.plantStages? <img src={Details.plantStages.Harvesting.Pests[4].ImageUrl} alt="" className='rounded-sm' /> : null 
-                                }
-                                {
-                                    Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Harvesting.Pests[4].Name}</figcaption> : null
-                                }
-                            </SwiperSlide>
-                            <SwiperSlide className='cursor-pointer'>
-                                {
-                                    Details.plantStages? <img src={Details.plantStages.Harvesting.Pests[5].ImageUrl} alt="" className='rounded-sm' /> : null 
-                                }
-                                {
-                                    Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Harvesting.Pests[5].Name}</figcaption> : null
-                                }
-                            </SwiperSlide>
-                        </Swiper>
+                            </figure>
+                        </div>
                         { Details.plantStages? <h3 className='font-bold mb-5 mt-5 text-3xl'>Diseases</h3> : null }
                         <Swiper
                             slidesPerView={5}
@@ -401,7 +378,7 @@ return (
                             modules={[FreeMode, Pagination]}
                             className="mySwiper"
                         >
-                            <SwiperSlide className='cursor-pointer'>
+                            <SwiperSlide id={Details.plantStages? Details.plantStages.Harvesting.Diseases[0]._id: null} className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Harvesting.Diseases[0].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
@@ -409,7 +386,7 @@ return (
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Harvesting.Diseases[0].Name}</figcaption> : null
                                 }
                             </SwiperSlide>
-                            <SwiperSlide className='cursor-pointer'>
+                            <SwiperSlide id={Details.plantStages? Details.plantStages.Harvesting.Diseases[1]._id: null} className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Harvesting.Diseases[1].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
@@ -417,7 +394,7 @@ return (
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Harvesting.Diseases[1].Name}</figcaption> : null
                                 }
                             </SwiperSlide>
-                            <SwiperSlide className='cursor-pointer'>
+                            <SwiperSlide id={Details.plantStages? Details.plantStages.Harvesting.Diseases[2]._id: null} className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Harvesting.Diseases[2].ImageUrl} alt="" className='rounded-sm' /> : null 
                                 }
@@ -425,7 +402,7 @@ return (
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Harvesting.Diseases[2].Name}</figcaption> : null
                                 }
                             </SwiperSlide>
-                            <SwiperSlide className='cursor-pointer'>
+                            <SwiperSlide id={Details.plantStages? Details.plantStages.Harvesting.Diseases[3]._id: null} className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Harvesting.Diseases[3].ImageUrl} alt="" className='rounded-sm' height='50px' /> : null 
                                 }
@@ -433,7 +410,7 @@ return (
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Harvesting.Diseases[3].Name}</figcaption> : null
                                 }
                             </SwiperSlide>
-                            <SwiperSlide className='cursor-pointer'>
+                            <SwiperSlide id={Details.plantStages? Details.plantStages.Harvesting.Diseases[4]._id: null} className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Harvesting.Diseases[4].ImageUrl} alt="" className='rounded-sm' height='50px' /> : null 
                                 }
@@ -441,60 +418,12 @@ return (
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Harvesting.Diseases[4].Name}</figcaption> : null
                                 }
                             </SwiperSlide>
-                            <SwiperSlide className='cursor-pointer'>
+                            <SwiperSlide id={Details.plantStages? Details.plantStages.Harvesting.Diseases[5]._id: null} className='cursor-pointer'>
                                 {
                                     Details.plantStages? <img src={Details.plantStages.Harvesting.Diseases[5].ImageUrl} alt="" className='rounded-sm' height='50px' /> : null 
                                 }
                                 {
                                     Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Harvesting.Diseases[5].Name}</figcaption> : null
-                                }
-                            </SwiperSlide>
-                            <SwiperSlide className='cursor-pointer'>
-                                {
-                                    Details.plantStages? <img src={Details.plantStages.Harvesting.Diseases[6].ImageUrl} alt="" className='rounded-sm' height='50px' /> : null 
-                                }
-                                {
-                                    Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Harvesting.Diseases[6].Name}</figcaption> : null
-                                }
-                            </SwiperSlide>
-                            <SwiperSlide className='cursor-pointer'>
-                                {
-                                    Details.plantStages? <img src={Details.plantStages.Harvesting.Diseases[7].ImageUrl} alt="" className='rounded-sm' height='50px' /> : null 
-                                }
-                                {
-                                    Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Harvesting.Diseases[7].Name}</figcaption> : null
-                                }
-                            </SwiperSlide>
-                            <SwiperSlide className='cursor-pointer'>
-                                {
-                                    Details.plantStages? <img src={Details.plantStages.Harvesting.Diseases[8].ImageUrl} alt="" className='rounded-sm' height='50px' /> : null 
-                                }
-                                {
-                                    Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Harvesting.Diseases[8].Name}</figcaption> : null
-                                }
-                            </SwiperSlide>
-                            <SwiperSlide className='cursor-pointer'>
-                                {
-                                    Details.plantStages? <img src={Details.plantStages.Harvesting.Diseases[9].ImageUrl} alt="" className='rounded-sm' height='50px' /> : null 
-                                }
-                                {
-                                    Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Harvesting.Diseases[9].Name}</figcaption> : null
-                                }
-                            </SwiperSlide>
-                            <SwiperSlide className='cursor-pointer'>
-                                {
-                                    Details.plantStages? <img src={Details.plantStages.Harvesting.Diseases[10].ImageUrl} alt="" className='rounded-sm' height='50px' /> : null 
-                                }
-                                {
-                                    Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Harvesting.Diseases[10].Name}</figcaption> : null
-                                }
-                            </SwiperSlide>
-                            <SwiperSlide className='cursor-pointer'>
-                                {
-                                    Details.plantStages? <img src={Details.plantStages.Harvesting.Diseases[11].ImageUrl} alt="" className='rounded-sm' height='50px' /> : null 
-                                }
-                                {
-                                    Details.plantStages? <figcaption className='font-bold mt-2 text-center text-3xl'>{Details.plantStages.Harvesting.Diseases[11].Name}</figcaption> : null
                                 }
                             </SwiperSlide>
                         </Swiper>

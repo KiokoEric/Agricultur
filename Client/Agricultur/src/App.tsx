@@ -8,6 +8,7 @@ import Cultivation from './Pages/Cultivation/Cultivation';
 import Registration from './Pages/User/Registration/Registration';
 import Pests_and_Diseases from './Pages/Pests_and_Diseases/Pests_and_Diseases';
 import Create from './Pages/Create/Create';
+import Details from './Pages/Details/Details';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path='/Registration' element={<Registration />} />
         <Route path='/Create' element={<Create />} />
         <Route path='/Pests_and_Diseases' element={<Pests_and_Diseases />} />
+        <Route path='/Pests_and_Diseases_Details/:id' element={<Details />} />
       </Routes>
     </div>
   )
