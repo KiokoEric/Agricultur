@@ -32,17 +32,17 @@ CropRoute.get("/AllCrops", async (req, res) => {
     }
 })
 
-// GETTING A CROP BY ITS ID
+// GETTING CROP DETAILS BY ITS ID
 
 CropRoute.get('/:id', async (req, res) => {
     try {
-    const crop = await Crop.findById(req.params.id);
-    if (!crop) {
-        return res.status(404).json({ message: 'Crop is not found' });
+    const cropDetails = await Crop.findById(req.params.id);
+    if (!cropDetails) {
+        return res.status(404).json({ message: 'Crop details are not found' });
     }
-    res.json(crop);
+    res.json(cropDetails);
     } catch (error) {
-    res.status(500).json({ message: 'Server Error' });
+        res.status(500).json({ message: 'Server Error' });
     }
 });
 
