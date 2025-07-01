@@ -50,6 +50,13 @@ body {
   height: 250px;
   width: 260px;
 }
+#Information {
+  font-family: 'Instrument Serif', serif;
+  font-size: 18px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  width: 800px;
+}
 .mySwiper {
   background: #fff;
   display: flex;

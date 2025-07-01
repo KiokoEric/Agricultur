@@ -46,6 +46,49 @@ CropRoute.get('/:id', async (req, res) => {
     }
 });
 
+// GETTING CROP DETAILS BY ITS ID
+
+CropRoute.get('/Details/:id', async (req, res) => {
+    const { id } = req.params;
+
+    try {
+    const crops = await Crop.find();
+
+    for (const crop of crops) {
+        const stages = crop.plantStages;
+
+        for (const stageKey of ['Seedling', 'Vegetative', 'Fruiting', 'Harvesting']) {
+        const stage = stages[stageKey];
+
+        const foundPest = stage.Pests.find(p => p._id.toString() === id);
+        if (foundPest) {
+            return res.json({
+                crop: crop.Name,
+                stage: stageKey,
+                type: 'Pest',
+                details: foundPest
+            });
+        }
+
+        const foundDisease = stage.Diseases.find(d => d._id.toString() === id);
+        if (foundDisease) { 
+            return res.json({
+                crop: crop.Name,
+                stage: stageKey,
+                type: 'Disease',
+                details: foundDisease
+            });}
+        }
+    }
+
+    res.status(404).json({ message: 'Pest or Disease not found in any crop' });
+
+    } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Server error' }); 
+    }
+    });
+
 // GETTING A CROP BY ITS NAME
 
 CropRoute.get('/:Name', async (req, res) => {

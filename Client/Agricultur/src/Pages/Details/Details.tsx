@@ -2,6 +2,7 @@ import axios from "axios";
 import { useCookies } from "react-cookie";
 import {  useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
+import Loading from '../../assets/Loading_Image.gif';
 
 const Details:React.FC = () => {
 
@@ -13,14 +14,12 @@ const Details:React.FC = () => {
      // FETCHING PROJECT DETAILS BY PROJECT ID
 
     useEffect(() => {
-        console.log(id)
-        axios.get(`http://localhost:4000/Crops/${id}`, {
+        axios.get(`http://localhost:4000/Crops/Details/${id}`, {
         headers: { authorization: Cookie.auth_token }
         }) 
         .then((Response) => {
-            console.log(id)
             console.log(Response.data)
-            setdetails(Response.data)
+            setdetails(Response.data.details)
         }) 
         setTimeout(() => {
             setIsLoading(false);
@@ -31,31 +30,23 @@ return (
     <div>
         {isLoading ? (
             <div className='flex items-center justify-center'>
-                <h2>Loading...</h2>
+                <img src={Loading} alt="" />
             </div>
             ) : (
-            <div>
-                {
-                    details.map((detail: any) => {
-                        return(
-                            <figure className="flex gap-5 items-center justify-center">
-                                <img src={detail.ImageUrl} alt="" />
-                                <figcaption>
-                                    <h2>{detail.Name}</h2>
-                                    <h3>Description</h3>
-                                    <p>{detail.Description}</p>
-                                    <h3>Signs and Symptoms</h3>
-                                    <ul>
-                                        <li>{details.Signs}</li>
-                                    </ul>
-                                    <h3>Preventive Measures</h3>
-                                    <p>{details.PreventiveMeasures}</p>
-                                </figcaption>
-                            </figure>
-                        )
-                    })
-                }
-            </div>
+                <figure className="flex gap-5 justify-center mt-5 px-10">
+                    <img src={details.ImageUrl} alt="" className="rounded-sm w-5/12" />
+                    <figcaption className="flex flex-col gap-4" >
+                        <h2 className="font-bold text-2xl underline uppercase">{details.Name}</h2>
+                        <h3 className="font-bold text-xl underline">Description</h3>
+                        <p className="flex-wrap w-10/12">{details.Description}</p>
+                        <h3 className="font-bold text-xl underline">Signs and Symptoms</h3>
+                        <ul>
+                            <pre id="Information" className="flex-wrap w-4/12">{details.Signs}</pre>
+                        </ul>
+                        <h3 className="flex-wrap font-bold text-xl underline">Preventive Measures</h3>
+                        <pre id="Information">{details.PreventiveMeasures}</pre>
+                    </figcaption>
+                </figure>
             )
         }
     </div>
