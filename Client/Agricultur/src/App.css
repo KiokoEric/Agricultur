@@ -33,18 +33,10 @@ body {
   height: 250px;
   width: 100%;
 }
-#Cultivation {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(./assets/Cultivation.jpg);
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 250px;
-  width: 100%;
-}
 #Message {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  height: 88vh;
+  height: 91vh;
 }
 #PestsandDiseases img {
   height: 250px;

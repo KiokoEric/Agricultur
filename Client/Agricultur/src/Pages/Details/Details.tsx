@@ -18,7 +18,6 @@ const Details:React.FC = () => {
         headers: { authorization: Cookie.auth_token }
         }) 
         .then((Response) => {
-            console.log(Response.data)
             setdetails(Response.data.details)
         }) 
         setTimeout(() => {
