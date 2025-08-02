@@ -9,6 +9,7 @@ import Registration from './Pages/User/Registration/Registration';
 import Pests_and_Diseases from './Pages/Pests_and_Diseases/Pests_and_Diseases';
 import Create from './Pages/Create/Create';
 import Details from './Pages/Details/Details';
+import Message from './Pages/Message/Message';
 
 
 function App() {
@@ -17,14 +18,14 @@ function App() {
     <div className='App' >
       <Header />
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/Login' element={<Login />} />
-        <Route path='/Weather' element={<Weather />} />
-        <Route path='/Cultivation' element={<Cultivation />} />
-        <Route path='/Registration' element={<Registration />} />
-        <Route path='/Create' element={<Create />} />
-        <Route path='/Pests_and_Diseases' element={<Pests_and_Diseases />} />
-        <Route path='/Pests_and_Diseases_Details/:id' element={<Details />} />
+        <Route path='/' element={<Home />}/>
+        <Route path='/Login' element={<Login />}/>
+        <Route path='/Create' element={<Create />}/>
+        <Route path='/Weather' element={<Weather />}/>
+        <Route path='/Botanist' element={<Message />}/>
+        <Route path='/Registration' element={<Registration />}/>
+        <Route path='/Pests_and_Diseases' element={<Pests_and_Diseases />}/>
+        <Route path='/Pests_and_Diseases_Details/:id' element={<Details />}/>
       </Routes>
     </div>
   )

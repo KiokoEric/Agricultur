@@ -34,7 +34,6 @@ const Pests_and_Diseases: React.FC = () => {
             try {
             axios.get(`http://localhost:4000/Crops/${cropName}`)
             .then(response => {
-                console.log(response.data)
                 setDetails(response.data)
                 setSearchError('')
             })
