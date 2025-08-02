@@ -24,6 +24,24 @@ const dbUrl = 'mongodb+srv://KiokoEric:Victory2025@agricultur.tgmtmel.mongodb.ne
 mongoose.connect(dbUrl) 
 .then(() => console.log("Connected to the database!"))
 
+    // SOCKET.IO CONNECTION
+
+const io = require('socket.io')(server, {
+    cors: { origin: '*' }
+});
+
+io.on('connection', (socket) => {
+    socket.on('join', ({ userId }) => {
+    socket.join(userId);
+});
+
+socket.on('sendMessage', ({ senderId, receiverId, message }) => {
+    io.to(receiverId).emit('receiveMessage', {
+        senderId, message, timestamp: new Date()
+    });
+    });
+});
+
 // IMPORT ROUTES
 
     const UserRoute = require("./Routes/UserRoute");
