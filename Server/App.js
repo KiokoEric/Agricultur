@@ -1,7 +1,9 @@
+const http = require("http");
 const cors = require("cors");
 const dotenv = require('dotenv');
 const express = require('express');
 const mongoose = require("mongoose");
+const { Server } = require('socket.io');
 const cookieParser = require("cookie-parser");
 const app = express();
 
@@ -23,6 +25,26 @@ const dbUrl = 'mongodb+srv://KiokoEric:Victory2025@agricultur.tgmtmel.mongodb.ne
 
 mongoose.connect(dbUrl) 
 .then(() => console.log("Connected to the database!"))
+
+// SOCKET.IO CONNECTION
+
+const server = http.createServer(app);
+
+const io = new Server(server, {
+    cors: { origin: "*" },
+});
+
+io.on('connection', (socket) => {
+    socket.on('join', ({ userId }) => {
+    socket.join(userId);
+});
+
+socket.on('sendMessage', ({ senderId, receiverId, message }) => {
+    io.to(receiverId).emit('receiveMessage', {
+        senderId, message, timestamp: new Date()
+    });
+    });
+});
 
 // IMPORT ROUTES
 
