@@ -26,14 +26,12 @@ const dbUrl = 'mongodb+srv://KiokoEric:Victory2025@agricultur.tgmtmel.mongodb.ne
 mongoose.connect(dbUrl) 
 .then(() => console.log("Connected to the database!"))
 
-Feature/Kioko/Server/App/Socket
 // SOCKET.IO CONNECTION
 
 const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: { origin: "*" },
-
 });
 
 io.on('connection', (socket) => {
@@ -57,3 +55,4 @@ socket.on('sendMessage', ({ senderId, receiverId, message }) => {
     app.use("/Crops", CropRoute);
 
 app.listen(4000)
+
