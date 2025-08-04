@@ -18,10 +18,23 @@ const BotanistSchema = new mongoose.Schema({
     },
 
     // OpenAI-specific fields
-    OpenAiPrompt: { type: String, required: true },
-    Model: { type: String, default: 'gpt-3.5-turbo' }, 
-    Temperature: { type: Number, default: 0.7 }, 
-    MaxTokens: { type: Number, default: 500 }, 
+    OpenAiPrompt: { 
+        type: String, 
+        required: true 
+    },
+    Model: { 
+        type: String,
+        default: 'gpt-3.5-turbo' 
+    }, 
+    Temperature: { 
+        type: Number, 
+        default: 0.7 
+    }, 
+    MaxTokens: { 
+        type: Number, 
+        default: 500 
+    }, 
 })
 
 module.exports = mongoose.model("Botanist", BotanistSchema)
+
