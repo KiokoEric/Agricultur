@@ -50,9 +50,11 @@ socket.on('sendMessage', ({ senderId, receiverId, message }) => {
 
     const UserRoute = require("./Routes/UserRoute");
     const CropRoute = require("./Routes/CropRoute.js"); 
+    const BotanistRoute = require("./Routes/BotanistRoute.js"); 
 
     app.use("/Users", UserRoute);
     app.use("/Crops", CropRoute);
+    app.use("/Botanist", BotanistRoute);
 
 app.listen(4000)
 

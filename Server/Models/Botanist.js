@@ -18,7 +18,7 @@ const BotanistSchema = new mongoose.Schema({
     },
 
     // OpenAI-specific fields
-    OpenAiPrompt: { 
+    Prompt: { 
         type: String, 
         required: true 
     },
