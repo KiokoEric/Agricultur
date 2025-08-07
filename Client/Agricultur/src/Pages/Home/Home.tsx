@@ -32,7 +32,7 @@ const Home: React.FC = () => {
                     HoveredText='Pests and Diseases'
                 />
                 <Features
-                    Navigate='/Botanist'
+                    Navigate='/Message'
                     Image={Botanist}
                     HoveredText='Botanists'
                 />
