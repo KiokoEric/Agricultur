@@ -5,7 +5,7 @@ const cookieParser = require("cookie-parser");
 const Botanist = require("../Models/Botanist");
 // const { Configuration, OpenAIApi } = require('openai');
 
-CropRoute.use(cookieParser())
+BotanistRoute.use(cookieParser())
 dotenv.config(); 
 
 // GET ALL BOTANISTS
@@ -26,6 +26,21 @@ BotanistRoute.get('/:id', async (req, res) => {
         res.json(botanist);
     } catch (err) {
         res.status(500).json({ error: 'Error fetching botanist' });
+    }
+});
+
+BotanistRoute.post('/', async (req, res) => {
+    try {
+    const { Name, Speciality, Image, Description, Prompt } = req.body;
+
+    // Create new botanist
+    const newBotanist = new Botanist({ Name, Speciality, Image, Description, Prompt });
+    const savedBotanist = await newBotanist.save();
+
+    res.status(201).json(savedBotanist);
+    } catch (err) {
+    console.error('Error creating botanist:', err);
+    res.status(500).json({ message: 'Server error' });
     }
 });
 
