@@ -3,18 +3,21 @@ import io from 'socket.io-client';
 import { MdSend } from "react-icons/md";
 import { useCookies } from "react-cookie";
 import React, { useState, useEffect } from 'react';
+import { useGetUserID } from "../../Components/Hooks/useGetUserID";
 
 const Message:React.FC = () => {
 
-    const socket = io('http://localhost:5000');
+    const userID = useGetUserID();
+    const socket = io('http://localhost:5173');
     const [Cookie,_] = useCookies(["auth_token"]);
 
 // USETSTATE
 
-const [ Message, setMessage ] = useState('')
+const [ ID, setID ] = useState('')
 const [ Profile, setProfile ] = useState<any>([])
 const [ Botanist, setBotanist ] = useState<[]>([])
 const [ Messages, setMessages ] = useState<any>([])
+const [ Message, setMessage ] = useState<String>('')
 
 useEffect(() => {
 
@@ -46,19 +49,20 @@ const BotanistProfile =(id: any) => {
         headers: { authorization: Cookie.auth_token }
     })
     .then((Response) => {
-        console.log(Response.data)
+        setID(Response.data._id)
         setProfile(Response.data)
     })
 }
 
-const sendMessage = () => {
+const sendMessage = (e: any) => {
+    e.preventDefault()
     const message = {
-        Sender: userId,
-        Receiver: botanist._id,
+        Sender: userID,
+        Receiver: ID,
         Message: Message,
     };
     socket.emit('sendMessage', message);
-    setMessages(prev => [...prev, message]);
+    setMessages(prev => [...prev, msg]);
     setMessage('');
 };
 
@@ -85,21 +89,21 @@ return (
             </div>
         </div>
         <div className="border-r-2 border-r-gray-300 flex flex-col justify-between px-2">
-            <div className='shadow-sm'>
-                <figure className='flex gap-2 items-center justify-center h-10'>
+            <div>
+                <figure className='flex gap-2 items-center justify-center h-10 mb-5 shadow-sm'>
                     <h2 className='text-black font-bold text-2xl'>{Profile.Name}</h2>
                 </figure>
-            </div>
-            <form onClick={sendMessage} method="post" encType="multipart/form-data" className='bg-white flex flex-row items-center justify-center'>
                 {
                     Messages.map((Message: any) => {
                         return(
-                            <p>{}</p>
+                            <p>{Message.Message}</p>
                         )
                     })
                 }
+            </div>
+            <form onClick={sendMessage} method="post" encType="multipart/form-data" className='bg-white flex flex-row items-center justify-center'>
                 <div className="bg-white border-b flex flex-row items-center justify-between mx-auto w-11/12">
-                    <input placeholder="Enter Message..." className="bg-white h-8 outline-0 rounded-sm pl-1" onChange={(e) => setMessage(e.target.value)} />
+                    <input placeholder="Enter Message..." className="bg-white h-8 outline-0 rounded-sm pl-1 w-11/12" onChange={(e) => setMessage(e.target.value)} />
                     <MdSend onClick={sendMessage} color="4F98CA" size='1.4rem' className="cursor-pointer" />
                 </div>
             </form>
